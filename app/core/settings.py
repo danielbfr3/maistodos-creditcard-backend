@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from os import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,13 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-opeir-dw@q2fm&kq16&cw94zdv2)9qvlut$al#ah^!)w%kh7u^"
+SECRET_KEY = environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = environ.get("DJANGO_DEBUG", "False")
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
