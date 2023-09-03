@@ -21,6 +21,9 @@ FROM base AS runtime
 COPY --from=python-deps /.venv /.venv
 ENV PATH="/.venv/bin:$PATH"
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq-dev postgresql-client && rm -rf /var/lib/apt/lists/*
+
 RUN useradd --create-home appuser
 WORKDIR /src
 USER appuser

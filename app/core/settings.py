@@ -87,7 +87,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "HOST": environ.get("DB_HOST", "localhost"),
+        "HOST": environ.get("DB_HOST", "db"),
         "PORT": environ.get("DB_PORT", 5432),
         "NAME": environ.get("DB_DB", "maistodos-creditcard"),
         "USER": environ.get("DB_USER", "postgres"),
