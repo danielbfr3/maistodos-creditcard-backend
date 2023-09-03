@@ -30,6 +30,11 @@ ALLOWED_HOSTS = environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
+API_APPS = [
+    "creditcards",
+    "users",
+]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -37,7 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-]
+    # Other apps
+    "django_extensions",
+    "rest_framework",
+] + API_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
