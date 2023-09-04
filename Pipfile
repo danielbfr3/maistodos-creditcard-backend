@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+psycopg2 = "*"
+djangorestframework-simplejwt = "*"
+drf-spectacular = "*"
+python-creditcard = {ref = "main", git = "https://github.com/maistodos/python-creditcard.git"}
+cryptography = "*"
+
+[dev-packages]
+django-debug-toolbar = "*"
+coverage = "*"
+pre-commit = "*"
+django-extensions = "*"
+flake8 = "*"
+black = "*"
+
+[requires]
+python_version = "3.11"
