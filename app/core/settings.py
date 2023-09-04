@@ -30,9 +30,9 @@ ALLOWED_HOSTS = environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
-API_APPS = [
+LOCAL_APPS = [
+    # Local apps
     "creditcards",
-    "users",
 ]
 
 INSTALLED_APPS = [
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "drf_spectacular",
-] + API_APPS
+] + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
