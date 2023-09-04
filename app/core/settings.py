@@ -32,6 +32,7 @@ ALLOWED_HOSTS = environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 LOCAL_APPS = [
     # Local apps
+    "users",
     "creditcards",
 ]
 
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     # Other apps
     "django_extensions",
     "rest_framework",
-    "rest_framework_simplejwt",
+    "rest_framework.authtoken",
     "drf_spectacular",
 ] + LOCAL_APPS
 
@@ -82,6 +83,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "core.wsgi.application"
+
+AUTH_USER_MODEL = "users.User"
 
 
 # Database
@@ -139,3 +142,27 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# DRF Settings
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "MaisTodos Creditcard API",
+    "DESCRIPTION": "API for MaisTodos Credicard Management",
+    "VERSION": "0.0.1",
+    "COMPONENT_SPLIT_REQUEST": True,
+    "SECURITY": [
+        {
+            "name": "Token",
+            "type": "apiKey",
+            "in": "header",
+            "description": "Enter your token in the format: Token {your_token}",
+            "bearerFormat": "Token",
+        }
+    ],
+}
