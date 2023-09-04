@@ -27,10 +27,9 @@ clean-pyc: ## remove Python file artifacts
 clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
-	rm -fr .pytest_cache
 
-test: ## run tests quickly with the default Python
-	coverage run app/manage.py test && coverage report
+coverage: ## run coverage report
+	 coverage report
 
 install-dev-requirements: clean ## installs requirements locally
 	pipenv install --dev
