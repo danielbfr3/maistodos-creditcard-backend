@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     # Other apps
     "django_extensions",
     "rest_framework",
+    "rest_framework_simplejwt",
+    "drf_spectacular",
 ] + API_APPS
 
 MIDDLEWARE = [
@@ -59,6 +61,7 @@ MIDDLEWARE = [
 
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
+    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 
 ROOT_URLCONF = "core.urls"
 

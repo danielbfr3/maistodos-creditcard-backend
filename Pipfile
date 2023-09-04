@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 psycopg2 = "*"
+djangorestframework-simplejwt = "*"
+drf-spectacular = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
