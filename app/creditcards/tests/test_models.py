@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from creditcards.models import Creditcard
+from creditcards.validators import generate_valid_date
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.test import TestCase
@@ -37,9 +38,11 @@ class CreditCardModelTests(TestCase):
         credit_card = Creditcard.objects.create(**self.valid_credit_card)
         self.assertEqual(credit_card.holder, self.valid_credit_card["holder"])
         self.assertEqual(credit_card.number, self.valid_credit_card["number"])
-        self.assertEqual(credit_card.exp_date, self.valid_credit_card["exp_date"])
         self.assertEqual(credit_card.cvv, self.valid_credit_card["cvv"])
         self.assertEqual(credit_card.brand, self.valid_brand)
+
+        exp_date = generate_valid_date(self.valid_credit_card["exp_date"])
+        self.assertEqual(credit_card.exp_date, exp_date)
 
     def test_create_invalid_credit_card(self):
         with self.assertRaises(ValidationError):

@@ -1,4 +1,5 @@
 from creditcards.validators import (
+    generate_valid_date,
     validate_brand,
     validate_cvv,
     validate_exp_date,
@@ -23,4 +24,5 @@ class Creditcard(models.Model):
 
     def save(self, *args, **kwargs):
         self.brand = validate_brand(self.number)
+        self.exp_date = generate_valid_date(self.exp_date)
         super(Creditcard, self).save(*args, **kwargs)

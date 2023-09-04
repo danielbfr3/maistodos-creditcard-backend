@@ -1,3 +1,4 @@
+import calendar
 from datetime import date
 
 from creditcard import CreditCard
@@ -78,3 +79,9 @@ def validate_brand(value):
         raise ValidationError("Brand not supported")
 
     return brand
+
+
+def generate_valid_date(value):
+    year, month = value.split("/")
+    _, last_day = calendar.monthrange(int(year), int(month))
+    return f"{year}-{month}-{last_day}"
