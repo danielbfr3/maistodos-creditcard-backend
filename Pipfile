@@ -10,6 +10,7 @@ psycopg2 = "*"
 djangorestframework-simplejwt = "*"
 drf-spectacular = "*"
 python-creditcard = {ref = "main", git = "https://github.com/maistodos/python-creditcard.git"}
+cryptography = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
