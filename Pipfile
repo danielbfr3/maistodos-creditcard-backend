@@ -9,6 +9,7 @@ djangorestframework = "*"
 psycopg2 = "*"
 djangorestframework-simplejwt = "*"
 drf-spectacular = "*"
+python-creditcard = {ref = "main", git = "https://github.com/maistodos/python-creditcard.git"}
 
 [dev-packages]
 django-debug-toolbar = "*"

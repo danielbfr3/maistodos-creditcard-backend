@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "654c4657c3dc8a6747062f931f4120eb5d12acf57713ac21e36e2db347085590"
+            "sha256": "0a6aebaa3892fe22ea28f23612cade5ddc5af2ef0713709b82ff620a5ee46f84"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -112,6 +112,10 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==2.8.0"
+        },
+        "python-creditcard": {
+            "git": "https://github.com/maistodos/python-creditcard.git",
+            "ref": "6b6bcc5d975985337c35e5c1a4f87d861bcac731"
         },
         "pytz": {
             "hashes": [
